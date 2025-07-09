@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Booking - Zenolaunch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="styeleui/universal.css">
+    <link rel="stylesheet" href="styeleui/cntacts.css">
+ 
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <img src="img/logoone.png" alt="ZenoLaunch Logo">
+                    </div>
+                    <div class="logo-text">
+                        <span class="zeno">Zeno</span><span class="launch">Launch</span>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="Contact.html" class="active">Contact</a></li>
+                    <li><a href="#process-section">Proccess</a></li>
+                    <li class="theme-toggle-container">
+                        <div class="theme-toggle" id="theme-toggle">
+                            <i class="fas fa-sun toggle-icon sun-icon"></i>
+                            <div class="toggle-switch">
+                                <i class="fas fa-circle"></i>
+                            </div>
+                            <i class="fas fa-moon toggle-icon moon-icon"></i>
+                        </div>
+                    </li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Particles -->
+    <section class="hero">
+        <div id="particles-js"></div>
+        <div class="container">
+            <h1>Transform Your Vision into Reality</h1>
+            <p>Complete our project booking form and our expert team will craft a tailored solution for your business needs. Let's build something amazing together.</p>
+            <a href="#contact-form" class="cta-button">Start Your Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact-form">
+        <div class="container">
+            <div class="section-title">
+                <h2>Project Booking Form</h2>
+                <p>Tailored for South African startups - tell us about your project and we'll create a customized solution</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Why Choose Zenolaunch?</h3>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-rand-sign"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Startup-Friendly Pricing</h4>
+                            <p>Solutions designed for South African startup budgets</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Local Market Expertise</h4>
+                            <p>Understanding of South African business landscape</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Ongoing Support</h4>
+                            <p>We're with you every step of your journey</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Growth Focused</h4>
+                            <p>Solutions designed to scale with your business</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" class="form-control" required placeholder="Your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" class="form-control" required placeholder="your@email.com">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="enquiryType">Project Type *</label>
+                            <select id="enquiryType" class="form-control" required>
+                                <option value="" disabled selected>Select a project type</option>
+                                <option value="web-development">Website Development</option>
+                                <option value="mobile-apps">Mobile App</option>
+                                <option value="ecommerce">Online Store</option>
+                                <option value="business-registration">Business Registration</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="plan">Project Plan *</label>
+                            <select id="plan" class="form-control" required>
+                                <option value="" disabled selected>Select your plan</option>
+                                <option value="starter-pack">Starter Pack (R999)</option>
+                                <option value="basic">Basic (R1,499)</option>
+                                <option value="professional">Professional (R3,999)</option>
+                                <option value="enterprise">Enterprise (R7,499)</option>
+                                <option value="ecommerce-pro">eCommerce Pro (R4,999/mo)</option>
+                                <option value="business-launch-pack">Business Launch Pack (R14,999)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Project Description *</label>
+                            <textarea id="message" class="form-control" placeholder="Tell us about your project goals, target audience, and requirements..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" required> 
+                                I agree to Zenolaunch's <a href="#" style="color: var(--primary);">Terms of Service</a> and <a href="#" style="color: var(--primary);">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <button type="button" id="emailBtn" class="submit-btn">Submit Project Request <i class="fas fa-paper-plane"></i></button>
+                        <div id="emailSuccess" class="success-message">
+                            Success! Opening your email client...
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Types -->
+    <section class="project-types">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Project Expertise</h2>
+                <p>We specialize in a wide range of digital solutions to help your business grow</p>
+            </div>
+            
+            <div class="types-grid">
+                <div class="type-card">
+                    <div class="type-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Custom websites, web applications, and CMS solutions tailored to your business needs.</p>
+                </div>
+                
+                <div class="type-card">
+                    <div class="type-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Apps</h3>
+                    <p>iOS and Android applications built with cutting-edge technologies for optimal performance.</p>
+                </div>
+                
+                <div class="type-card">
+                    <div class="type-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>User-centered design solutions that enhance engagement and improve conversion rates.</p>
+                </div>
+                
+                <div class="type-card">
+                    <div class="type-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-commerce</h3>
+                    <p>Complete online store solutions with secure payment gateways and inventory management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Project Process</h2>
+                <p>From initial consultation to final delivery, we follow a structured approach</p>
+            </div>
+            
+            <div class="process-container">
+                <div class="process-steps">
+                    <div class="connecting-line">
+                        <div class="line-progress" id="processLine"></div>
+                    </div>
+                    
+                    <div class="step" id="step1">
+                        <div class="step-number">1</div>
+                        <h3>Consultation</h3>
+                        <p>We discuss your project requirements and goals in detail.</p>
+                    </div>
+                    
+                    <div class="step" id="step2">
+                        <div class="step-number">2</div>
+                        <h3>Planning</h3>
+                        <p>We create a detailed project roadmap with milestones.</p>
+                    </div>
+                    
+                    <div class="step" id="step3">
+                        <div class="step-number">3</div>
+                        <h3>Design</h3>
+                        <p>Our designers create mockups and prototypes for approval.</p>
+                    </div>
+                    
+                    <div class="step" id="step4">
+                        <div class="step-number">4</div>
+                        <h3>Development</h3>
+                        <p>Our developers bring your project to life with quality code.</p>
+                    </div>
+                    
+                    <div class="step" id="step5">
+                        <div class="step-number">5</div>
+                        <h3>Launch</h3>
+                        <p>We deploy your solution and ensure everything runs smoothly.</p>
+                    </div>
+                </div>
+                
+                <div class="animation-controls">
+                    <button class="control-btn" id="restartBtn">
+                        <i class="fas fa-redo"></i> Restart Animation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our project booking process</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How soon will you respond to my project inquiry?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We typically respond to all project inquiries within 24 business hours. During peak times, it may take up to 48 hours. If your project is urgent, please indicate that in your message.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What information should I include in my project description?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Please include as much detail as possible about your project goals, target audience, specific features or functionality required, and any examples of similar projects you admire. The more information you provide, the better we can understand your needs.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you offer free consultations?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer a free 30-minute initial consultation for all new projects. This allows us to understand your requirements and determine if we're a good fit for your project.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What happens after I submit my project request?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>After you submit your request, our project manager will review your information and contact you to schedule a consultation. We may request additional details to prepare a customized proposal for your project.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Zenolaunch</h3>
+                    <p>Transforming ideas into exceptional digital experiences since 2020.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Web Development</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Mobile App Development</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> UI/UX Design</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> E-commerce Solutions</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Digital Marketing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Our Team</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Durban, South Africa</a></li>
+                        <li><a href="tel:+27123456789"><i class="fas fa-phone-alt"></i> +27 12 345 6789</a></li>
+                        <li><a href="mailto:hello@zenolaunch.com"><i class="fas fa-envelope"></i> hello@zenolaunch.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Zenolaunch. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="javascript/scriptcontact.js"></script>
+    <script>
+        // Particles.js Configuration
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#6C63FF"
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 2,
+                        size_min: 0.3,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#6C63FF",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "grab"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Theme toggle functionality
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            
+            // Save theme preference
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Process step animation
+        let currentStep = 1;
+        const processLine = document.getElementById('processLine');
+        const steps = document.querySelectorAll('.step');
+        
+        function activateStep(stepNum) {
+            steps.forEach(step => step.classList.remove('active'));
+            document.getElementById(`step${stepNum}`).classList.add('active');
+            processLine.style.width = `${(stepNum - 1) * 25}%`;
+        }
+        
+        // Automatically cycle through steps
+        let animationInterval = setInterval(() => {
+            currentStep = currentStep < 5 ? currentStep + 1 : 1;
+            activateStep(currentStep);
+        }, 2000);
+        
+        // Initial activation
+        activateStep(1);
+        
+        // Restart button functionality
+        document.getElementById('restartBtn').addEventListener('click', function() {
+            clearInterval(animationInterval);
+            currentStep = 1;
+            activateStep(1);
+            animationInterval = setInterval(() => {
+                currentStep = currentStep < 5 ? currentStep + 1 : 1;
+                activateStep(currentStep);
+            }, 2000);
+        });
+
+        // FAQ functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // Form submission
+        document.getElementById('emailBtn').addEventListener('click', function() {
+            // Form validation would go here
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const plan = document.getElementById('plan').value;
+            
+            if (!name || !email || !plan) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Show success message
+            const successMsg = document.getElementById('emailSuccess');
+            successMsg.style.display = 'block';
+            
+            // Simulate form submission
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+                alert('Form submitted successfully! We will contact you shortly.');
+                document.getElementById('contactForm').reset();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    /* Navigation adjustments */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100vh;
+        background: var(--lighter);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 100px 40px 40px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        z-index: 1000;
+    }
+    
+    body.dark-mode .nav-links {
+        background: var(--darker);
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links li {
+        margin: 0 0 25px 0;
+    }
+    
+    .menu-toggle {
+        display: block;
+        font-size: 1.8rem;
+        z-index: 1001;
+    }
+
+    /* Hero section adjustments */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 3rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        margin: 0 auto 2.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .stats {
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    
+    .hero-graphic {
+        width: 100%;
+    }
+    
+    .graphic-container {
+        height: auto;
+        transform: none;
+        animation: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .glass-card {
+        position: relative !important;
+        margin: 0 auto 2rem;
+        width: 100%;
+        max-width: 280px;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+    }
+    
+    .card-1, .card-2, .card-3 {
+        animation: none;
+    }
+    
+    /* Section title adjustments */
+    .section-title h2 {
+        font-size: 2.2rem;
+    }
+    
+    .section-title p {
+        font-size: 1.1rem;
+    }
+
+    /* Services grid adjustments */
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Portfolio adjustments */
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-card {
+        height: auto;
+    }
+
+    /* Pricing adjustments */
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-card.popular {
+        transform: scale(1);
+    }
+
+    /* Contact section adjustments */
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .form-buttons {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    /* Footer adjustments */
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .copyright {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .copyright-links {
+        margin-top: 15px;
+    }
+
+    .copyright-links a {
+        margin: 0 10px;
+    }
+
+    /* Process section */
+    .process-container {
+        padding: 15px 0;
+    }
+
+    .process-steps {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .step {
+        width: 40%;
+        margin-bottom: 30px;
+    }
+
+    .process-line {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra small screen adjustments */
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-badge {
+        font-size: 0.8rem;
+    }
+    
+    .stats {
+        gap: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+    }
+
+    .service-card, .pricing-card {
+        padding: 30px 20px;
+    }
+
+    .portfolio-card .card-content {
+        padding: 25px;
+    }
+
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+
+    .section-title p {
+        font-size: 1rem;
+    }
+
+    .contact-info, #contactForm {
+        padding: 25px;
+    }
+
+    .tech-tags span {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .logo-text {
+        font-size: 1.5rem;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .hero {
+        padding: 1rem;
+    }
+    
+    .hero-graphic {
+        margin-top: 20px;
+    }
+}
+
+/* Touch target improvements */
+.btn, .pricing-button, .card-link {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input, select, textarea {
+    font-size: 16px !important; /* Prevents mobile zooming on focus */
+}
+
+/* Mobile navigation animation */
+@keyframes slideIn {
+    from {
+        right: -300px;
+    }
+    to {
+        right: 0;
+    }
+}
+
+.nav-links.active {
+    animation: slideIn 0.3s ease-out;
+}
