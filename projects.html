@@ -73,8 +73,6 @@
             text-decoration: none;
         }
 
-        
-
         .logo-text {
             font-weight: 700;
             font-size: 1.5rem;
@@ -310,6 +308,7 @@
             height: 250px;
             overflow: hidden;
             position: relative;
+            cursor: pointer;
         }
 
         .project-image img {
@@ -405,6 +404,41 @@
         .project-link:hover {
             background: var(--primary);
             color: white;
+        }
+
+        /* Modal Styles for Full-Screen Image */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            overflow: auto;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .modal-close {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: var(--light);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
         }
 
         /* Stats Section */
@@ -669,20 +703,20 @@
             </div>
             
             <div class="projects-grid">
-                <!-- Project 1 -->
+                <!-- LuxAura Scents -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="E-Commerce Platform">
-                        <div class="project-badge">Web App</div>
+                        <img src="img/Screenshot (114).png" alt="LuxAura Scents">
+                        <div class="project-badge">E-Commerce</div>
                     </div>
                     <div class="project-content">
-                        <h3>Premium E-Commerce Platform</h3>
-                        <p>A full-featured online store with inventory management, payment processing, and customer analytics.</p>
+                        <h3>LuxAura Scents</h3>
+                        <p>Shopify e-commerce store making luxury perfumes accessible at affordable prices with seamless checkout experience.</p>
                         
                         <div class="project-meta">
                             <div>
                                 <i class="fas fa-calendar"></i>
-                                <span>Dec 2023 - Mar 2024</span>
+                                <span>August 2024</span>
                             </div>
                             <div>
                                 <i class="fas fa-user"></i>
@@ -691,178 +725,215 @@
                         </div>
                         
                         <div class="tech-stack">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Stripe API</span>
+                            <span class="tech-tag">Shopify</span>
+                            <span class="tech-tag">UI/UX Design</span>
+                            <span class="tech-tag">E-Commerce</span>
+                            <span class="tech-tag">Payment Gateway</span>
                         </div>
                         
-                        <a href="#" class="project-link">View Case Study</a>
+                        <a href="img/Screenshot (114).png" class="project-link">View Project Demo</a>
                     </div>
                 </div>
                 
-                <!-- Project 2 -->
+                <!-- BeatsbyHezel -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Fitness App">
-                        <div class="project-badge">Mobile App</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>FitLife Fitness Tracker</h3>
-                        <p>Mobile application for tracking workouts, nutrition, and progress with social sharing features.</p>
-                        
-                        <div class="project-meta">
-                            <div>
-                                <i class="fas fa-calendar"></i>
-                                <span>Aug 2023 - Nov 2023</span>
-                            </div>
-                            <div>
-                                <i class="fas fa-user"></i>
-                                <span>Health Startup</span>
-                            </div>
-                        </div>
-                        
-                        <div class="tech-stack">
-                            <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">Redux</span>
-                            <span class="tech-tag">Health API</span>
-                        </div>
-                        
-                        <a href="#" class="project-link">View App Demo</a>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Finance Dashboard">
+                        <img src="img/Screenshot 2025-07-12 at 20-40-34 Beatsbyhazel Professional Nail Artist & Makeup Specialist.png" alt="BeatsbyHezel">
                         <div class="project-badge">Web App</div>
                     </div>
                     <div class="project-content">
-                        <h3>Financial Analytics Dashboard</h3>
-                        <p>Real-time financial dashboard for tracking investments, expenses, and generating reports.</p>
+                        <h3>BeatsbyHezel</h3>
+                        <p>Professional beauty portfolio with WhatsApp booking integration and gallery showcasing premium beauty services.</p>
                         
                         <div class="project-meta">
                             <div>
                                 <i class="fas fa-calendar"></i>
-                                <span>May 2023 - Jul 2023</span>
+                                <span>Jan 2025</span>
                             </div>
                             <div>
                                 <i class="fas fa-user"></i>
-                                <span>Finance Company</span>
+                                <span>Beauty Professional</span>
                             </div>
                         </div>
                         
                         <div class="tech-stack">
-                            <span class="tech-tag">Vue.js</span>
-                            <span class="tech-tag">D3.js</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Portfolio Design</span>
+                            <span class="tech-tag">WhatsApp API</span>
+                            <span class="tech-tag">Booking System</span>
                         </div>
                         
-                        <a href="#" class="project-link">Explore Dashboard</a>
+                        <a href="https://beatsbyhezel.web.app/" class="project-link">View Portfolio</a>
                     </div>
                 </div>
                 
-                <!-- Project 4 -->
+                <!-- Twisters Picnic -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Restaurant Booking">
-                        <div class="project-badge">Web & Mobile</div>
+                        <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Twisters Picnic">
+                        <div class="project-badge">Web App</div>
                     </div>
                     <div class="project-content">
-                        <h3>Restaurant Booking System</h3>
-                        <p>Complete reservation system with table management, online payments, and customer notifications.</p>
+                        <h3>Twisters Picnic</h3>
+                        <p>Event website for premium picnic experiences featuring menu customization, location booking, and gallery.</p>
                         
                         <div class="project-meta">
                             <div>
                                 <i class="fas fa-calendar"></i>
-                                <span>Jan 2023 - Apr 2023</span>
+                                <span>2020</span>
                             </div>
                             <div>
                                 <i class="fas fa-user"></i>
-                                <span>Restaurant Chain</span>
+                                <span>Event Organizer</span>
                             </div>
                         </div>
                         
                         <div class="tech-stack">
-                            <span class="tech-tag">Angular</span>
-                            <span class="tech-tag">NestJS</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Twilio API</span>
+                            <span class="tech-tag">Event Website</span>
+                            <span class="tech-tag">Booking System</span>
+                            <span class="tech-tag">Responsive Design</span>
+                            <span class="tech-tag">JavaScript</span>
                         </div>
                         
                         <a href="#" class="project-link">View Project</a>
                     </div>
                 </div>
                 
-                <!-- Project 5 -->
+                <!-- FNB Revision App -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Education Platform">
+                        <img src="img/2025-07-11 01-31-09 High Res Screenshot.png" alt="FNB Revision App">
                         <div class="project-badge">Web App</div>
                     </div>
                     <div class="project-content">
-                        <h3>E-Learning Platform</h3>
-                        <p>Comprehensive online learning system with course management, progress tracking, and certifications.</p>
+                        <h3>FNB Revision App</h3>
+                        <p>Interactive revision app for students, offering quizzes, study resources, and progress tracking for academic success.</p>
                         
                         <div class="project-meta">
                             <div>
                                 <i class="fas fa-calendar"></i>
-                                <span>Sep 2022 - Dec 2022</span>
+                                <span>Jan 2025</span>
                             </div>
                             <div>
                                 <i class="fas fa-user"></i>
-                                <span>Education Provider</span>
+                                <span>Educational Institution</span>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-tag">Web App</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Responsive Design</span>
+                        </div>
+                        
+                        <a href="https://fnbappoftheyear.netlify.app/" class="project-link">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- AstuteFX -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/Screenshot (111).png" alt="AstuteFX">
+                        <div class="project-badge">Web App</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>AstuteFX</h3>
+                        <p>Financial platform offering tools for forex trading, portfolio management, and real-time market analysis.</p>
+                        
+                        <div class="project-meta">
+                            <div>
+                                <i class="fas fa-calendar"></i>
+                                <span>Jan 2025</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-user"></i>
+                                <span>Financial Client</span>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-tag">Web App</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">API Integration</span>
+                            <span class="tech-tag">Real-Time Data</span>
+                        </div>
+                        
+                        <a href="https://astutefx.ct.ws/?i=1" class="project-link">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Playball Catch -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/Screenshot (110).png" alt="Playball Catch">
+                        <div class="project-badge">Game</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Playball Catch</h3>
+                        <p>Engaging web-based game challenging players to catch falling balls with increasing difficulty and leaderboards.</p>
+                        
+                        <div class="project-meta">
+                            <div>
+                                <i class="fas fa-calendar"></i>
+                                <span>Jan 2025</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-user"></i>
+                                <span>Gaming Community</span>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Canvas API</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+                        
+                        <a href="https://playtimebounce.netlify.app/" class="project-link">Play Game</a>
+                    </div>
+                </div>
+                
+                <!-- Yamudrive -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/Screenshot (116).png" alt="Yamudrive">
+                        <div class="project-badge">Web App</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Yamudrive</h3>
+                        <p>PDF resource platform for matriculants, providing study guides, past papers, and revision tools.</p>
+                        
+                        <div class="project-meta">
+                            <div>
+                                <i class="fas fa-calendar"></i>
+                                <span>Jan 2025</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-user"></i>
+                                <span>Educational Institution</span>
                             </div>
                         </div>
                         
                         <div class="tech-stack">
                             <span class="tech-tag">React</span>
-                            <span class="tech-tag">GraphQL</span>
                             <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">PDF.js</span>
+                            <span class="tech-tag">Cloud Storage</span>
                         </div>
                         
-                        <a href="#" class="project-link">Explore Platform</a>
-                    </div>
-                </div>
-                
-                <!-- Project 6 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Social Media">
-                        <div class="project-badge">Mobile App</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Community Social Network</h3>
-                        <p>Mobile-first social platform for local communities with event planning and group messaging features.</p>
-                        
-                        <div class="project-meta">
-                            <div>
-                                <i class="fas fa-calendar"></i>
-                                <span>Jun 2022 - Aug 2022</span>
-                            </div>
-                            <div>
-                                <i class="fas fa-user"></i>
-                                <span>Community Organization</span>
-                            </div>
-                        </div>
-                        
-                        <div class="tech-stack">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">Google Maps API</span>
-                            <span class="tech-tag">WebRTC</span>
-                        </div>
-                        
-                        <a href="#" class="project-link">View App Demo</a>
+                        <a href="yamudrive.html" class="project-link">Explore Platform</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal for Full-Screen Image -->
+    <div class="modal" id="imageModal">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
 
     <!-- Stats Section -->
     <section class="stats-section">
@@ -951,40 +1022,36 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2025 Zenolaunch. All rights reserved.</p>
+                <p>© 2025 Zenolaunch. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-     <!-- Back to top button -->
+    <!-- Back to top button -->
     <div class="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    
     <script>
-
         // ===== BACK TO TOP BUTTON =====
-    const backToTop = document.querySelector('.back-to-top');
-    if (backToTop) {
-        // Show/hide button based on scroll position
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-        
-        // Scroll to top functionality
-        backToTop.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        const backToTop = document.querySelector('.back-to-top');
+        if (backToTop) {
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
             });
-        });
-    }
-    
+            
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
         // Particles.js Configuration
         particlesJS("particles-js", {
             particles: {
@@ -1087,7 +1154,6 @@
         document.getElementById('theme-toggle').addEventListener('click', function() {
             document.body.classList.toggle('dark-mode');
             
-            // Save theme preference
             if (document.body.classList.contains('dark-mode')) {
                 localStorage.setItem('theme', 'dark');
             } else {
@@ -1095,7 +1161,6 @@
             }
         });
         
-        // Check for saved theme preference
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
         }
@@ -1104,10 +1169,7 @@
         const filterBtns = document.querySelectorAll('.filter-btn');
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Remove active class from all buttons
                 filterBtns.forEach(b => b.classList.remove('active'));
-                
-                // Add active class to clicked button
                 btn.classList.add('active');
             });
         });
@@ -1124,6 +1186,35 @@
                 card.style.transform = 'translateY(0)';
                 card.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.2)';
             });
+        });
+
+        // Modal functionality for full-screen image
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalClose = document.getElementById('modalClose');
+        const projectImages = document.querySelectorAll('.project-image img');
+
+        projectImages.forEach(img => {
+            img.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                modalImage.src = img.src;
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+            modalImage.src = '';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        });
+
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                modalImage.src = '';
+                document.body.style.overflow = 'auto';
+            }
         });
     </script>
 </body>

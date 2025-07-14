@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yamudrive - Matric Exam Resources</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #FF4500;       /* Orange-red */
+            --primary-light: #ff6a33;
+            --primary-dark: #e03c00;
+            --secondary: #FFFFFF;     /* White */
+            --accent: #1A1A1A;        /* Dark gray */
+            --light-bg: #FFF8F6;
+            --card-bg: #fff;
+            --text: #333333;
+            --text-light: #777777;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            background-color: var(--secondary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #ffffff 0%, #fff8f6 100%);
+        }
+
+        /* Particles Canvas */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s ease, width 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover:after,
+        .nav-links a.active:after {
+            width: 100%;
+        }
+
+        .nav-links a:hover, .nav-links a:focus {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            gap: 8px;
+        }
+
+        .btn:hover, .btn:focus {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 69, 0, 0.35);
+        }
+
+        .btn.disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover, .btn-outline:focus {
+            background: var(--primary);
+            color: var(--secondary);
+        }
+
+        .btn-sm {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+            background-color: rgba(255, 68, 0, 0.219);
+        }
+
+        .hero-content {
+            max-width: 700px;
+            z-index: 10;
+            padding: 40px 0;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .hero h2 span {
+            color: var(--accent);
+            position: relative;
+        }
+
+        .hero h2 span:after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: rgba(255, 69, 0, 0.2);
+            z-index: -1;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            color: var(--secondary);
+        }
+
+        .discontinued-notice {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: var(--accent);
+            font-weight: 600;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-blob {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(255, 69, 0, 0.3);
+        }
+
+        .hero-blob-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 30px;
+        }
+
+        .hero-blob-content i {
+            font-size: 8rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .hero-blob-content h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 700px;
+            margin: 40px auto;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 18px 25px;
+            border-radius: 50px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(255, 69, 0, 0.15);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 70px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-item i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            border: 1px solid rgba(255, 69, 0, 0.1);
+        }
+
+        .feature-card:hover, .feature-card:focus-within {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+            background: var(--primary);
+            color: white;
+        }
+
+        .feature-icon {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+            background: rgba(255, 69, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .feature-content {
+            padding: 30px;
+        }
+
+        .feature-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .feature-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        /* Past Papers Section */
+        .papers-filter {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .papers-filter input, .papers-filter select {
+            padding: 0.75rem;
+            border-radius: var(--border-radius);
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            min-width: 200px;
+        }
+
+        .papers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .paper-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .paper-card:hover, .paper-card:focus-within {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .paper-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .paper-card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        /* Subjects Section */
+        .subjects {
+            background: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subjects:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ff4500' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subject-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .subject-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            z-index: -1;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .subject-card:hover:before {
+            transform: scaleX(1);
+        }
+
+        .subject-card i {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .subject-card:hover i {
+            transform: scale(1.1);
+            color: var(--primary-dark);
+        }
+
+        .subject-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .subject-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Study Tips Carousel */
+        .carousel {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            padding: 2rem;
+            background: var(--light-bg);
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .carousel-item h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: var(--secondary);
+            border: none;
+            padding: 0.75rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-btn:hover, .carousel-btn:focus {
+            background: var(--primary-dark);
+        }
+
+        .prev-btn {
+            left: -3rem;
+        }
+
+        .next-btn {
+            right: -3rem;
+        }
+
+        /* Quiz Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            max-width: 700px;
+            width: 90%;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        .modal-content h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-question {
+            display: none;
+        }
+
+        .quiz-question.active {
+            display: block;
+        }
+
+        .quiz-option {
+            margin: 0.75rem 0;
+            padding: 0.75rem;
+            background: var(--light-bg);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .quiz-option:hover, .quiz-option:focus {
+            background: var(--primary-light);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--accent);
+        }
+
+        .quiz-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+
+        .quiz-score {
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2.2rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .timeline {
+            background: var(--light-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-top: 30px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .timeline-date {
+            min-width: 100px;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .timeline-desc {
+            flex: 1;
+            color: var(--text);
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile {
+            width: 280px;
+            height: 280px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 6rem;
+            box-shadow: 0 15px 40px rgba(255, 69, 0, 0.25);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+
+        .about-image h3 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .about-image p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--accent);
+            color: var(--secondary);
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .footer-column p {
+            color: #ccc;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a i {
+            transition: transform 0.3s;
+        }
+
+        .footer-links a:hover, .footer-links a:focus {
+            color: var(--primary);
+        }
+
+        .footer-links a:hover i {
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .section-header, .feature-card, .paper-card, .carousel-item {
+            animation: fadeInUp 0.5s ease-in-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            .hero-content, .hero-image {
+                text-align: center;
+                margin: 0 auto;
+            }
+            .hero-btns {
+                justify-content: center;
+            }
+            .prev-btn {
+                left: 0.5rem;
+            }
+            .next-btn {
+                right: 0.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: var(--accent);
+                cursor: pointer;
+            }
+            .hero h2 {
+                font-size: 2.3rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .section {
+                padding: 70px 0;
+            }
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            .hero-blob {
+                width: 350px;
+                height: 350px;
+            }
+            .papers-filter {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .papers-filter input, .papers-filter select {
+                min-width: unset;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-icon">Y</div>
+                    <h1>YAMU<span>DRIVE</span></h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#features" class="active">Resources</a></li>
+                    <li><a href="#papers">Past Papers</a></li>
+                    <li><a href="#subjects">Subjects</a></li>
+                    <li><a href="#study-tips">Study Tips</a></li>
+                    <li><a href="#quizzes">Quizzes</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features" class="btn btn-sm">Get Started</a></li>
+                </ul>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="discontinued-notice">
+                    <p style="color:black;">Project Discontinued (2020-2021)</p>
+                </div>
+                <h2>Empowering <span>Matriculants</span> with Essential Resources</h2>
+                <p>Access past exam papers, memorandums, study tips, and quizzes to excel in your final exams. Designed specifically for South African students.</p>
+                
+                <div class="search-container">
+                    <input type="text" class="search-box" placeholder="Search for subjects, papers, or resources...">
+                    <button class="search-btn">Search</button>
+                </div>
+                
+                <div class="hero-btns">
+                    <a href="#features" class="btn"><i class="fas fa-book-open"></i> Explore Resources</a>
+                    <a href="#subjects" class="btn btn-outline"><i class="fas fa-graduation-cap"></i> View Subjects</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-blob">
+                    <div class="hero-blob-content">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Matric Success</h3>
+                        <p>Your Journey Starts Here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fas fa-file-alt"></i>
+                    <div class="stat-number">1,250+</div>
+                    <div class="stat-text">Past Papers</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="stat-number">950+</div>
+                    <div class="stat-text">Memorandums</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-book"></i>
+                    <div class="stat-number">12</div>
+                    <div class="stat-text">Subjects</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <div class="stat-number">15,000+</div>
+                    <div class="stat-text">Students Helped</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Academic Resources</h2>
+                <p>Everything you need to prepare for your matric exams in one place</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-download"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Past Exam Papers</h3>
+                        <p>Access NSC and IEB past papers from 2010-2021 for all major subjects.</p>
+                        <a href="#papers" class="btn btn-outline btn-sm">Browse Papers</a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Memorandums</h3>
+                        <p>Download official memorandums to check your answers and understand marking criteria.</p>
+                        <a href="#papers" class="btn btn-outline btn-sm">View Memos</a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Study Tips</h3>
+                        <p>Proven study techniques and time management strategies to maximize your preparation.</p>
+                        <a href="#study-tips" class="btn btn-outline btn-sm">Learn Tips</a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Exam Structure Guides</h3>
+                        <p>Understand the format, weighting, and requirements for each subject's examination.</p>
+                        <a href="#" class="btn btn-outline btn-sm">View Guides</a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Interactive Quizzes</h3>
+                        <p>Test your knowledge with subject-specific quizzes and track your progress.</p>
+                        <a href="#quizzes" class="btn btn-outline btn-sm">Take Quiz</a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Performance Analytics</h3>
+                        <p>Identify your strengths and weaknesses with detailed performance reports.</p>
+                        <a href="#" class="btn btn-outline btn-sm">View Reports</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Papers Section -->
+    <section id="papers" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Past Exam Papers & Memorandums</h2>
+                <p>Explore past papers and memorandums for matric subjects (2020-2021).</p>
+            </div>
+            <div class="papers-filter">
+                <input type="text" id="searchInput" placeholder="Search by subject or title..." aria-label="Search papers">
+                <select id="subjectFilter" aria-label="Filter by subject">
+                    <option value="all">All Subjects</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Physical Sciences">Physical Sciences</option>
+                    <option value="Life Sciences">Life Sciences</option>
+                    <option value="Geography">Geography</option>
+                </select>
+                <select id="yearFilter" aria-label="Filter by year">
+                    <option value="all">All Years</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                </select>
+            </div>
+            <div class="papers-grid" id="papersGrid"></div>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section id="subjects" class="section subjects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Subject Resources</h2>
+                <p>Comprehensive materials for all major matric subjects</p>
+            </div>
+            <div class="subjects-grid">
+                <div class="subject-card">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Mathematics</h3>
+                    <p>Papers, memorandums, and study guides</p>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-atom"></i>
+                    <h3>Physical Science</h3>
+                    <p>Physics and Chemistry resources</p>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Life Science</h3>
+                    <p>Biology study materials</p>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-globe-africa"></i>
+                    <h3>Geography</h3>
+                    <p>Maps, case studies, and exam prep</p>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-book"></i>
+                    <h3>English</h3>
+                    <p>Language and literature resources</p>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-landmark"></i>
+                    <h3>History</h3>
+                    <p>Source-based questions and essays</p>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Accounting</h3>
+                    <p>Financial statements and ratios</p>
+                </div>
+                <div class="subject-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Economics</h3>
+                    <p>Micro and macroeconomics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Study Tips Carousel -->
+    <section id="study-tips" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Study Tips</h2>
+                <p>Effective strategies to boost your matric exam preparation.</p>
+            </div>
+            <div class="carousel">
+                <div class="carousel-inner" id="carouselInner">
+                    <div class="carousel-item">
+                        <h3>Time Management</h3>
+                        <p>Create a study schedule to balance all subjects effectively.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <h3>Active Recall</h3>
+                        <p>Test yourself regularly to improve retention and understanding.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <h3>Practice Past Papers</h3>
+                        <p>Solve past papers under timed conditions to simulate exams.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <h3>Study Environment</h3>
+                        <p>Create a distraction-free space to enhance focus and productivity.</p>
+                    </div>
+                </div>
+                <button class="carousel-btn prev-btn" aria-label="Previous tip"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn next-btn" aria-label="Next tip"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quizzes Section -->
+    <section id="quizzes" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Interactive Quizzes</h2>
+                <p>Test your knowledge with our subject-specific quizzes.</p>
+            </div>
+            <button class="btn" onclick="startQuiz()">Start Quiz</button>
+        </div>
+    </section>
+
+    <!-- Quiz Modal -->
+    <div class="modal" id="quizModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeQuizModal()" aria-label="Close quiz">×</span>
+            <h3>Mathematics Quiz</h3>
+            <div class="quiz-question" id="question-0">
+                <p>What is the derivative of f(x) = 3x² + 2x + 1?</p>
+                <div class="quiz-option" data-correct="false">A) 3x + 2</div>
+                <div class="quiz-option" data-correct="true">B) 6x + 2</div>
+                <div class="quiz-option" data-correct="false">C) 6x + 1</div>
+                <div class="quiz-option" data-correct="false">D) 3x² + 2</div>
+            </div>
+            <div class="quiz-question" id="question-1">
+                <p>Solve for x: 2x + 5 = 15</p>
+                <div class="quiz-option" data-correct="false">A) x = 5</div>
+                <div class="quiz-option" data-correct="true">B) x = 5</div>
+                <div class="quiz-option" data-correct="false">C) x = 10</div>
+                <div class="quiz-option" data-correct="false">D) x = 7.5</div>
+            </div>
+            <div class="quiz-question" id="question-2">
+                <p>What is the value of sin(π/2)?</p>
+                <div class="quiz-option" data-correct="false">A) 0</div>
+                <div class="quiz-option" data-correct="false">B) -1</div>
+                <div class="quiz-option" data-correct="true">C) 1</div>
+                <div class="quiz-option" data-correct="false">D) √2/2</div>
+            </div>
+            <p class="quiz-score" id="quizScore">Score: 0/3</p>
+            <div class="quiz-nav">
+                <button class="btn" onclick="prevQuestion()" id="prevQuestion" disabled>Previous</button>
+                <button class="btn" onclick="nextQuestion()" id="nextQuestion">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Yamudrive</h2>
+                <p>The story behind our educational initiative</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>Yamudrive was created to bridge the educational resource gap for South African matriculants. Our platform aimed to provide free, high-quality exam preparation materials to students across all provinces, regardless of their socioeconomic background.</p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2020</div>
+                            <div class="timeline-desc">Founded by Yamukelani Ntimbane with the vision of democratizing exam resources</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2021</div>
+                            <div class="timeline-desc">Platform discontinuation due to funding challenges</div>
+                        </div>
+                    </div>
+                    
+                    <p>Though Yamudrive is no longer active, we're proud of the impact we made during our operation, helping thousands of students prepare for their matric examinations.</p>
+                    
+                    <a href="#" class="btn" style="margin-top: 20px;"><i class="fas fa-download"></i> Download Legacy Resources</a>
+                </div>
+                <div class="about-image">
+                    <div class="profile">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Yamukelani Ntimbane</h3>
+                    <p>Founder & Visionary</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>YAMUDRIVE</h3>
+                    <p>Empowering South African matriculants with essential educational resources (2020-2021).</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#papers"><i class="fas fa-chevron-right"></i> Past Papers</a></li>
+                        <li><a href="#papers"><i class="fas fa-chevron-right"></i> Memorandums</a></li>
+                        <li><a href="#study-tips"><i class="fas fa-chevron-right"></i> Study Tips</a></li>
+                        <li><a href="#quizzes"><i class="fas fa-chevron-right"></i> Quizzes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Subjects</h3>
+                    <ul class="footer-links">
+                        <li><a href="#subjects"><i class="fas fa-chevron-right"></i> Mathematics</a></li>
+                        <li><a href="#subjects"><i class="fas fa-chevron-right"></i> Physical Science</a></li>
+                        <li><a href="#subjects"><i class="fas fa-chevron-right"></i> Life Science</a></li>
+                        <li><a href="#subjects"><i class="fas fa-chevron-right"></i> Geography</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@yamudrive.co.za"><i class="fas fa-envelope"></i> info@yamudrive.co.za</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2020-2021 Yamudrive. All Rights Reserved. Project discontinued.</p>
+                <p>Founded by Yamukelani Ntimbane</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particles.js Configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 1000 } },
+                color: { value: ['#FF4500', '#FF8C69', '#FFFFFF'] },
+                shape: { type: ['circle', 'triangle', 'star'], polygon: { nb_sides: 5 } },
+                opacity: { value: 0.7, random: true, anim: { enable: true, speed: 1, opacity_min: 0.2 } },
+                size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.1 } },
+                line_linked: {
+                    enable: true,
+                    distance: 120,
+                    color: '#FFFFFF',
+                    opacity: 0.5,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'grab' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 150, line_linked: { opacity: 0.8 } },
+                    push: { particles_nb: 3 }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Past Papers Filter
+        const papers = [
+            { subject: 'Mathematics', year: '2020', title: 'Math Paper 1' },
+            { subject: 'Mathematics', year: '2021', title: 'Math Paper 2' },
+            { subject: 'Physical Sciences', year: '2020', title: 'Physics Paper 1' },
+            { subject: 'Physical Sciences', year: '2021', title: 'Physics Paper 2' },
+            { subject: 'Life Sciences', year: '2020', title: 'Biology Paper 1' },
+            { subject: 'Life Sciences', year: '2021', title: 'Biology Paper 2' },
+            { subject: 'Geography', year: '2020', title: 'Geography Paper 1' },
+            { subject: 'Geography', year: '2021', title: 'Geography Paper 2' }
+        ];
+
+        function renderPapers(filterSubject = 'all', filterYear = 'all', searchQuery = '') {
+            const papersGrid = document.getElementById('papersGrid');
+            papersGrid.innerHTML = '';
+            const filteredPapers = papers.filter(paper => {
+                const matchesSubject = filterSubject === 'all' || paper.subject === filterSubject;
+                const matchesYear = filterYear === 'all' || paper.year === filterYear;
+                const matchesSearch = paper.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                     paper.subject.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesSubject && matchesYear && matchesSearch;
+            });
+
+            if (filteredPapers.length === 0) {
+                papersGrid.innerHTML = '<p style="text-align: center; color: var(--text-light);">No papers found.</p>';
+                return;
+            }
+
+            filteredPapers.forEach(paper => {
+                const card = document.createElement('div');
+                card.className = 'paper-card';
+                card.innerHTML = `
+                    <h3>${paper.title}</h3>
+                    <p>${paper.subject} (${paper.year})</p>
+                    <button class="btn btn-outline disabled">Download (Archived)</button>
+                `;
+                papersGrid.appendChild(card);
+            });
+        }
+
+        document.getElementById('searchInput').addEventListener('input', e => {
+            renderPapers(
+                document.getElementById('subjectFilter').value,
+                document.getElementById('yearFilter').value,
+                e.target.value
+            );
+        });
+
+        document.getElementById('subjectFilter').addEventListener('change', e => {
+            renderPapers(e.target.value, document.getElementById('yearFilter').value);
+        });
+
+        document.getElementById('yearFilter').addEventListener('change', e => {
+            renderPapers(document.getElementById('subjectFilter').value, e.target.value);
+        });
+
+        renderPapers();
+
+        // Carousel Functionality
+        let currentSlide = 0;
+        const carouselInner = document.getElementById('carouselInner');
+        const slides = carouselInner.children;
+
+        document.querySelector('.next-btn').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+        });
+
+        document.querySelector('.prev-btn').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+        });
+
+        // Quiz Functionality
+        let currentQuestion = 0;
+        let score = 0;
+        const totalQuestions = 3;
+
+        function startQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('quizScore').innerText = `Score: 0/${totalQuestions}`;
+            document.getElementById('prevQuestion').disabled = true;
+            document.getElementById('nextQuestion').disabled = false;
+            document.querySelectorAll('.quiz-question').forEach(q => q.classList.remove('active'));
+            document.getElementById(`question-0`).classList.add('active');
+            document.getElementById('quizModal').style.display = 'flex';
+        }
+
+        function closeQuizModal() {
+            document.getElementById('quizModal').style.display = 'none';
+            document.getElementById('quizScore').innerText = `Score: 0/${totalQuestions}`;
+        }
+
+        function checkAnswer(isCorrect, element) {
+            if (!element.classList.contains('answered')) {
+                element.classList.add('answered');
+                if (isCorrect) {
+                    score++;
+                    document.getElementById('quizScore').innerText = `Score: ${score}/${totalQuestions}`;
+                }
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions - 1) {
+                currentQuestion++;
+                document.querySelectorAll('.quiz-question').forEach(q => q.classList.remove('active'));
+                document.getElementById(`question-${currentQuestion}`).classList.add('active');
+                document.getElementById('prevQuestion').disabled = false;
+                if (currentQuestion === totalQuestions - 1) {
+                    document.getElementById('nextQuestion').disabled = true;
+                }
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                document.querySelectorAll('.quiz-question').forEach(q => q.classList.remove('active'));
+                document.getElementById(`question-${currentQuestion}`).classList.add('active');
+                document.getElementById('nextQuestion').disabled = false;
+                if (currentQuestion === 0) {
+                    document.getElementById('prevQuestion').disabled = true;
+                }
+            }
+        }
+
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', () => {
+                const isCorrect = option.dataset.correct === 'true';
+                checkAnswer(isCorrect, option);
+            });
+        });
+    </script>
+</body>
+</html>
